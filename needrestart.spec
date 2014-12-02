@@ -2,7 +2,7 @@
 Summary:	Check which daemons need to be restarted after library upgrades
 Name:		needrestart
 Version:	1.2
-Release:	0.5
+Release:	0.7
 License:	GPL v2
 Group:		Applications
 Source0:	https://github.com/liske/needrestart/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -56,8 +56,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/%{name}
 %dir %{_sysconfdir}/%{name}/hook.d
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/needrestart.conf
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/hook.d/20-rpm
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/hook.d/90-none
+%attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/hook.d/20-rpm
+%attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/hook.d/90-none
 %attr(755,root,root) %{_sbindir}/needrestart
 %{perl_vendorlib}/NeedRestart.pm
 %{perl_vendorlib}/NeedRestart
