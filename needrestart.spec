@@ -1,12 +1,14 @@
+%include	/usr/lib/rpm/macros.perl
 Summary:	Check which daemons need to be restarted after library upgrades
 Name:		needrestart
 Version:	1.2
-Release:	0.4
+Release:	0.5
 License:	GPL v2
 Group:		Applications
 Source0:	https://github.com/liske/needrestart/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	9e5ecf1eab10a0a628641a6fed98608b
 URL:		https://fiasko-nw.net/~thomas/tag/needrestart.html
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -52,8 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README.* INSTALL NEWS README.Kernel
 %dir %{_sysconfdir}/%{name}
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/needrestart.conf
 %dir %{_sysconfdir}/%{name}/hook.d
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/needrestart.conf
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/hook.d/20-rpm
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/hook.d/90-none
 %attr(755,root,root) %{_sbindir}/needrestart
