@@ -28,6 +28,8 @@ Features:
 %prep
 %setup -q
 
+%{__rm} perl/lib/NeedRestart/UI/Debconf.pm
+
 %build
 cd perl
 %{__perl} Makefile.PL \
