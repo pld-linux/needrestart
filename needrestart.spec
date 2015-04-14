@@ -7,6 +7,7 @@ License:	GPL v2
 Group:		Applications
 Source0:	https://github.com/liske/needrestart/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	21d04f18accdd1fc538b436e2c8dac0c
+Patch0:		config.patch
 URL:		https://fiasko-nw.net/~thomas/tag/needrestart.html
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	coreutils
@@ -27,8 +28,9 @@ Features:
 - fully integrated into apt/dpkg using hooks
 
 %prep
-%setup -q -c
+%setup -qc
 mv %{name}-*/* .
+%patch0 -p1
 
 %{__rm} perl/lib/NeedRestart/UI/Debconf.pm
 
