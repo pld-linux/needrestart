@@ -9,6 +9,7 @@ Source0:	https://github.com/liske/needrestart/archive/v%{version}/%{name}-%{vers
 # Source0-md5:	21d04f18accdd1fc538b436e2c8dac0c
 URL:		https://fiasko-nw.net/~thomas/tag/needrestart.html
 BuildRequires:	rpm-perlprov >= 4.1-13
+Requires:	coreutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
