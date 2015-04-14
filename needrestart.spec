@@ -2,12 +2,11 @@
 Summary:	Check which daemons need to be restarted after library upgrades
 Name:		needrestart
 Version:	2.0
-Release:	0.9
+Release:	0.10
 License:	GPL v2
 Group:		Applications
-#Source0:	https://github.com/liske/needrestart/archive/v%{version}/%{name}-%{version}.tar.gz
-Source0:	https://github.com/liske/needrestart/archive/master/%{name}-%{version}.tar.gz
-# Source0-md5:	890dd11d035ead51fdd0e2127082d817
+Source0:	https://github.com/liske/needrestart/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	21d04f18accdd1fc538b436e2c8dac0c
 URL:		https://fiasko-nw.net/~thomas/tag/needrestart.html
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
@@ -56,7 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README.* INSTALL NEWS README.Kernel
+%doc AUTHORS ChangeLog README.* INSTALL NEWS
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/needrestart.conf
 %dir %{_sysconfdir}/%{name}/hook.d
@@ -66,9 +65,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sysconfdir}/%{name}/conf.d/README.needrestart
 %dir %{_sysconfdir}/%{name}/notify.d
 %{_sysconfdir}/%{name}/notify.d/README.needrestart
-%attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/notify.d/100-write
-%attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/notify.d/110-notify-send
-%attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/notify.d/200-mail
+%attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/notify.d/200-write
+%attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/notify.d/400-notify-send
+%attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/notify.d/600-mail
+
 %attr(755,root,root) %{_sbindir}/needrestart
+%{_datadir}/polkit-1/actions/net.fiasko-nw.needrestart.policy
+
 %{perl_vendorlib}/NeedRestart.pm
 %{perl_vendorlib}/NeedRestart
