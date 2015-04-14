@@ -62,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/hook.d/20-rpm
 %attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/hook.d/90-none
 %dir %{_sysconfdir}/%{name}/conf.d
-%attr(755,root,root) %{_sysconfdir}/%{name}/conf.d/README.needrestart
+%{_sysconfdir}/%{name}/conf.d/README.needrestart
 %dir %{_sysconfdir}/%{name}/notify.d
 %{_sysconfdir}/%{name}/notify.d/README.needrestart
 %attr(755,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/notify.d/200-write
