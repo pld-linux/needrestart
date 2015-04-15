@@ -2,7 +2,7 @@
 Summary:	Check which daemons need to be restarted after library upgrades
 Name:		needrestart
 Version:	2.0
-Release:	0.10
+Release:	0.14
 License:	GPL v2
 Group:		Applications
 Source0:	https://github.com/liske/needrestart/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -11,6 +11,7 @@ Patch0:		config.patch
 URL:		https://fiasko-nw.net/~thomas/tag/needrestart.html
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	coreutils
+Requires:	perl-Proc-ProcessTable >= 0.49
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
