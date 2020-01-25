@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.perl
 Summary:	Check which daemons need to be restarted after library upgrades
 Name:		needrestart
 Version:	2.0
