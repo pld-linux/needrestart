@@ -30,7 +30,7 @@ Features:
 %prep
 %setup -qc
 mv %{name}-*/* .
-%patch0 -p1
+%patch -P0 -p1
 
 %{__rm} perl/lib/NeedRestart/UI/Debconf.pm
 
